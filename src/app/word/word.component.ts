@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WordComponent implements OnInit {
 
+  en = "Hello";
+  vn = "Xin chao";
+  imageURL = "https://angular.io/assets/images/logos/angular/logo-nav@2x.png"
   constructor() { }
 
   ngOnInit(): void {
