@@ -1,4 +1,11 @@
-<h3>This is word component!</h3>
+<!-- Component Decorator -->
+<h3 [hidden]="forgot">This is word component!</h3>
+<!-- String Interpolation -->
 <p>{{en}}</p>
 <p>{{vn}}</p>
+<!-- Property Binding -->
 <img [src]="imageURL">
+
+<!-- Event Binding -->
+<button (click)="toggleForgot()">Toggle Forgot</button>
+
