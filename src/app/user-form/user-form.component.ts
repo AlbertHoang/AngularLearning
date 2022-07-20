@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { reduce } from 'rxjs';
 
 @Component({
   selector: 'app-user-form',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class UserFormComponent implements OnInit {
   name = '';
   isHighlight = true;
+  evenStyle = {color: 'red', fontSize: '40px' };
+  oddStyle = {color: 'blue', fontSize: '20px'};
+  currentClass = {circle: !this.isHighlight, square: this.isHighlight};
   constructor() { }
 
   ngOnInit(): void {
