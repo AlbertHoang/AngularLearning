@@ -1,3 +1,6 @@
-<h3>User Form</h3>
-<input placeholder="Your User Name" [(ngModel)]="name">
+<h3 [style.color] = "isHighlight ? 'red' : 'black'">User Form</h3>
+<input placeholder="Your User Name" [(ngModel)]="name" #txtUsername>
 <p>Your username {{name}}</p>
+<p>{{ txtUsername.value | json }}</p>
+<div [class.circle] = "!isHighlight" [class.square]="isHighlight"></div>
+
