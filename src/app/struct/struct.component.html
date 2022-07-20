@@ -1,0 +1,11 @@
+<h3 [style.color]="isHighlight ? 'red' : 'black'">Struct</h3>
+<!-- ngIf -->
+<p *ngIf="isShow">struct works!</p>
+<button (click)="isShow = !isShow">Show</button>
+<!-- ngFor -->
+<ul>
+    <li *ngFor="let subject of arrSubjects">
+        <p>{{subject}}</p>
+    </li>
+
+</ul>
