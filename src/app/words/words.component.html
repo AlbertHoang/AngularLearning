@@ -9,9 +9,10 @@
 </div>
 <button (click)="isShowForm = true" *ngIf="!isShowForm">Add a new word</button>
 <!-- ngFor -->
-<div *ngFor="let word of arrWords">
+<div *ngFor="let word of arrWords" class="word">
     <h4 [ngStyle]="{color: word.memorized ? 'green' : 'red'}">
         {{word.en}}
     </h4>
     <h4>{{word.vn}}</h4>
+    <button (click)="removeWord(word.id)">Delete</button>
 </div>
