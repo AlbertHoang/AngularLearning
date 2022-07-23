@@ -8,6 +8,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { FormsModule } from '@angular/forms';
 import { StructComponent } from './struct/struct.component';
 import { WordsComponent } from './words/words.component';
+import { PersonComponent } from './person/person.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { WordsComponent } from './words/words.component';
     WordComponent,
     UserFormComponent,
     StructComponent,
-    WordsComponent
+    WordsComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
