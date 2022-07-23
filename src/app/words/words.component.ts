@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class WordsComponent implements OnInit {
   newEn = '';
   newVn = '';
+  isShowForm = false;
 
   arrWords = [
     { id: 1, en: 'action', vn: 'hành động', memorized: true },
@@ -30,5 +31,6 @@ export class WordsComponent implements OnInit {
     });
     this.newEn = '';
     this.newVn = '';
+    this.isShowForm = false;
   }
 }
