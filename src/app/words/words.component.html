@@ -8,11 +8,19 @@
 <button (click)="addWord();">Add a new word</button>
 </div>
 <button (click)="isShowForm = true" *ngIf="!isShowForm">Add a new word</button>
+<br><br>
+<select [(ngModel)]="filterStatus">
+    <option value="All words">All words</option>
+    <option value="Memorized words">Memorized words</option>
+    <option value="Not Memorized words">Not Memorized words</option>
+</select>
 <!-- ngFor -->
-<div *ngFor="let word of arrWords" class="word">
+<div *ngFor="let word of arrWords" >
+    <div class="word" *ngIf="getShowStatus(word.memorized)">
     <h4 [ngStyle]="{color: word.memorized ? 'green' : 'red'}">
         {{word.en}}
     </h4>
     <h4>{{word.vn}}</h4>
     <button (click)="removeWord(word.id)">Delete</button>
+    </div>
 </div>

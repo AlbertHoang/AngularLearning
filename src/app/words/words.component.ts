@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./words.component.css'],
 })
 export class WordsComponent implements OnInit {
+  filterStatus = "All words";
   newEn = '';
   newVn = '';
   isShowForm = false;
@@ -33,8 +34,16 @@ export class WordsComponent implements OnInit {
     this.newVn = '';
     this.isShowForm = false;
   }
+
   removeWord(id: number){
     const index = this.arrWords.findIndex(word => word.id === id);
     this.arrWords.splice(index, 1);
+  }
+
+  getShowStatus(memorized: boolean){
+    const viewAll = this.filterStatus === 'All words';
+    const viewMemorizedword = this.filterStatus === 'Memorized words' && memorized;
+    const viewNotMemorizedWord = this.filterStatus === 'Not Memorized words' && !memorized;
+    return viewAll || viewMemorizedword || viewNotMemorizedWord;
   }
 }
