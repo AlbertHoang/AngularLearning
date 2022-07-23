@@ -22,5 +22,8 @@
     </h4>
     <h4>{{word.vn}}</h4>
     <button (click)="removeWord(word.id)">Delete</button>
+    <button (click)="word.memorized = !word.memorized">
+        {{word.memorized ? 'Memorized' : 'Not Memorized'}}
+    </button>
     </div>
 </div>
