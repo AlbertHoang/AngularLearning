@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  @Input() name?: String;
-  @Input() age?: String;
+  @Input() name?: string;
+  @Input() age?: number;
 
   constructor() { }
 
