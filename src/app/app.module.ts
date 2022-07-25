@@ -14,6 +14,7 @@ import { ParentComponent } from './parent.component';
 import { ChildComponent } from './child.component';
 import { ParentToChildComponent } from './parent_to_child.component';
 import { Child1Component } from './child_1.component';
+import { CardComponent } from './card.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { Child1Component } from './child_1.component';
     ParentComponent,
     ChildComponent,
     ParentToChildComponent,
-    Child1Component
+    Child1Component,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
