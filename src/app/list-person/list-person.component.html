@@ -1,4 +1,8 @@
 <h3>list-person works!</h3>
-<div *ngFor="let person of arrPeople">
-    <app-person [name]="person.name" [age]=person.age></app-person>
+<div *ngFor="let person of arrPeople" class="person">
+    <app-person
+    [name]="person.name"
+    [age]=person.age
+    (removePerson) = "removePersonByName($event)"
+    ></app-person>
 </div>
