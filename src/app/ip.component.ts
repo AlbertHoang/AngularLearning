@@ -4,7 +4,7 @@ import { IpService } from './ip.service';
 
 @Component({
   selector: 'app-ip',
-  template: '<h3>{{ ip }}</h3>',
+  template: '<h4>{{ ip }}</h4>',
 })
 export class IpComponent implements OnInit{
     ip: any;
