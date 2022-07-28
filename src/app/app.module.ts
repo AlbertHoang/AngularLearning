@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WordComponent } from './word/word.component';
 import { UserFormComponent } from './user-form/user-form.component';
-import { FormsModule } from '@angular/forms';
 import { StructComponent } from './struct/struct.component';
 import { WordsComponent } from './words/words.component';
 import { PersonComponent } from './person/person.component';
@@ -17,6 +18,7 @@ import { Child1Component } from './child_1.component';
 import { CardComponent } from './card.component';
 import { LearnPipeComponent } from './learn-pipe/learn-pipe.component';
 import { RoundPipe } from './round.pipe';
+import { IpComponent } from './ip.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,13 @@ import { RoundPipe } from './round.pipe';
     CardComponent,
     LearnPipeComponent,
     RoundPipe,
+    IpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
