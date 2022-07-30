@@ -1,5 +1,5 @@
 <h3>weather works!</h3>
-<h4>{{ cityName === '' ? "Enter your city name" : (cityName + ' is now '+ temp)}}</h4>
+<h4>{{ getMessage() }}</h4>
 <input placeholder="Enter your city name" [(ngModel)]="txtCityName">
 <br><br>
 <button (click)="getWeather()">Get Weather</button>
