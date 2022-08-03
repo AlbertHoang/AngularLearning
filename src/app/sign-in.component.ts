@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
     selector: 'app-sign-in',
@@ -24,6 +26,7 @@ import { Component } from "@angular/core";
             <label><input type="checkbox" [ngModel]="false" name="ReactJS">ReactJS</label>
             </div>
             <button [disabled]="formSignIn.invalid">Submit</button>
+            <button (click)="postToExpress()">Post to Server</button>
         <form>
         <p>{{ txtPassword.errors | json }}</p>
         <p>{{ formSignIn.value | json }}</p>
@@ -32,8 +35,20 @@ import { Component } from "@angular/core";
 
 export class SignInComponent {
 
+    constructor(private httpClient: HttpClient) {}
+
     onSubmit(formSignIn:any){
         console.log(formSignIn);
         console.log(formSignIn.value);
+    }
+
+    postToExpress(){
+        const url = 'http://localhost:3000/signin';
+        const headers = new HttpHeaders({'Content-Type':'application/json'});
+        const body = JSON.stringify({name: 'Albert Hoang'});
+
+        this.httpClient.post(url, body, {headers}).subscribe(
+            data => {console.log(data);
+            });
     }
 }
