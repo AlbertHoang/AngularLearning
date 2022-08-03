@@ -40,6 +40,13 @@ export class SignInComponent {
     onSubmit(formSignIn:any){
         console.log(formSignIn);
         console.log(formSignIn.value);
+        const url = 'http://localhost:3000/signin';
+        const headers = new HttpHeaders({'Content-Type':'application/json'});
+        const body = JSON.stringify(formSignIn.value);
+
+        this.httpClient.post(url, body, {headers}).subscribe(
+            data => { return data;
+            });
     }
 
     postToExpress(){
