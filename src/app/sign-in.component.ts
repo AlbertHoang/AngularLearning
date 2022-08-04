@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { SignInService } from './sign-in.service';
 
 @Component({
     selector: 'app-sign-in',
@@ -26,36 +25,32 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
             <label><input type="checkbox" [ngModel]="false" name="ReactJS">ReactJS</label>
             </div>
             <button [disabled]="formSignIn.invalid">Submit</button>
-            <button (click)="postToExpress()">Post to Server</button>
+            <button >Post to Server</button>
         <form>
         <p>{{ txtPassword.errors | json }}</p>
         <p>{{ formSignIn.value | json }}</p>
-    `
+    `,
+    providers: [SignInService]
 })
 
 export class SignInComponent {
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private signInService: SignInService) {}
 
     onSubmit(formSignIn:any){
-        console.log(formSignIn);
-        console.log(formSignIn.value);
-        const url = 'http://localhost:3000/signin';
-        const headers = new HttpHeaders({'Content-Type':'application/json'});
-        const body = JSON.stringify(formSignIn.value);
-
-        this.httpClient.post(url, body, {headers}).subscribe(
-            data => { return data;
+        this.signInService.sendPost(formSignIn.value).subscribe(
+            data => { console.log(data);
             });
+
     }
 
-    postToExpress(){
-        const url = 'http://localhost:3000/signin';
-        const headers = new HttpHeaders({'Content-Type':'application/json'});
-        const body = JSON.stringify({name: 'Albert Hoang'});
+    // postToExpress(){
+    //     const url = 'http://localhost:3000/signin';
+    //     const headers = new HttpHeaders({'Content-Type':'application/json'});
+    //     const body = JSON.stringify({name: 'Albert Hoang'});
 
-        this.httpClient.post(url, body, {headers}).subscribe(
-            data => {console.log(data);
-            });
-    }
+    //     this.httpClient.post(url, body, {headers}).subscribe(
+    //         data => {console.log(data);
+    //         });
+    // }
 }
