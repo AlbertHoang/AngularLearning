@@ -20,9 +20,9 @@ import { SignInService } from './sign-in.service';
             >
             <br><br>
             <div ngModelGroup="subjects">
-            <label><input type="checkbox" [ngModel]="false" name="NodeJS">NodeJS</label>
-            <label><input type="checkbox" [ngModel]="false" name="Angular">Angular</label>
-            <label><input type="checkbox" [ngModel]="false" name="ReactJS">ReactJS</label>
+            <label><input type="checkbox" [ngModel]="false" name="NodeJS"> NodeJS</label>
+            <label><input type="checkbox" [ngModel]="false" name="Angular"> Angular</label>
+            <label><input type="checkbox" [ngModel]="false" name="ReactJS"> ReactJS</label>
             </div>
             <button [disabled]="formSignIn.invalid">Submit</button>
             <button >Post to Server</button>
