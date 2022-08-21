@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routesConfig: Routes = [
     { path: 'contacts', component: ContactsComponent },
     { path: 'detail', component: ContactDetailComponent},
+    { path: '', redirectTo: '/contacts', pathMatch: 'full'},
+    { path: '**', component: PageNotFoundComponent},
 ];
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +33,7 @@ import { SignInComponent } from './sign-in.component';
 import { SignUpComponent } from'./sign-up.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     SignUpComponent,
     ContactsComponent,
     ContactDetailComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
