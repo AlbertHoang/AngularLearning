@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms"
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, FormBuilder } from "@angular/forms"
 
 @Component({
     selector: 'app-sign-up',
@@ -21,18 +21,20 @@ import { FormGroup, FormControl } from "@angular/forms"
     `
 })
 
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
 
-    formSignUp: FormGroup;
+    formSignUp!: FormGroup;
 
-    constructor(){
-        this.formSignUp = new FormGroup({
-            email: new FormControl(),
-            password: new FormControl(),
-            subject: new FormGroup({
-                nodeJS: new FormControl(),
-                angular: new FormControl(),
-                reactJS: new FormControl()
+    constructor(private fb: FormBuilder){}
+
+    ngOnInit(): void {
+        this.formSignUp = this.fb.group({
+            email: "abc@gmail.com",
+            password: '',
+            subject: this.fb.group({
+                nodeJS: false,
+                angular: true,
+                reactJS: false
             })
         });
     }
