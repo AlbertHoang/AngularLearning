@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, FormBuilder } from "@angular/forms"
+import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms"
 
 @Component({
     selector: 'app-sign-up',
@@ -7,6 +7,7 @@ import { FormGroup, FormControl, FormBuilder } from "@angular/forms"
         <form (ngSubmit)="onSubmit();" [formGroup]="formSignUp">
             <h3>Sign Up Component</h3>
             <input placeholder="Email" formControlName="email">
+            <p *ngIf="formSignUp.controls['email'].invalid && formSignUp.controls['email'].touched">Email is required</p>
             <br><br>
             <input type="password" placeholder="Password" formControlName="password">
             <br><br>
@@ -16,7 +17,7 @@ import { FormGroup, FormControl, FormBuilder } from "@angular/forms"
             <label><input type="checkbox" name="ReactJS" formControlName="reactJS"> ReactJS</label>
             </div>
             <br><br>
-            <button >Submit</button>
+            <button [disabled]="formSignUp.invalid">Submit</button>
         <form>
     `
 })
@@ -29,7 +30,7 @@ export class SignUpComponent implements OnInit {
 
     ngOnInit(): void {
         this.formSignUp = this.fb.group({
-            email: "abc@gmail.com",
+            email: ['', Validators.required],
             password: '',
             subject: this.fb.group({
                 nodeJS: false,
