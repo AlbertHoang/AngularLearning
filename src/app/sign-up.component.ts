@@ -10,6 +10,12 @@ import { FormGroup, FormControl } from "@angular/forms"
             <br><br>
             <input type="password" placeholder="Password" formControlName="password">
             <br><br>
+            <div formGroupName="subject">
+            <label><input type="checkbox" name="NodeJS" formControlName="nodeJS"> NodeJS</label>
+            <label><input type="checkbox" name="Angular" formControlName="angular"> Angular</label>
+            <label><input type="checkbox" name="ReactJS" formControlName="reactJS"> ReactJS</label>
+            </div>
+            <br><br>
             <button >Submit</button>
         <form>
     `
@@ -22,7 +28,12 @@ export class SignUpComponent {
     constructor(){
         this.formSignUp = new FormGroup({
             email: new FormControl(),
-            password: new FormControl()
+            password: new FormControl(),
+            subject: new FormGroup({
+                nodeJS: new FormControl(),
+                angular: new FormControl(),
+                reactJS: new FormControl()
+            })
         });
     }
 
